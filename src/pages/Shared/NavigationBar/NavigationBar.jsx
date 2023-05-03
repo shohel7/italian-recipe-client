@@ -1,4 +1,5 @@
 import React from "react";
+import { FaUtensils } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const NavigationBar = () => {
@@ -44,8 +45,13 @@ const NavigationBar = () => {
               </li>
             </ul>
           </div>
-          <Link to="/" className="text-xl font-semibold cursor-pointer">
-            Italiano <span className="text-lime-500">Recipe</span>
+          <Link to="/">
+            <span className="flex justify-center">
+              <FaUtensils className="text-5xl text-lime-500" />
+            </span>
+            <p className="text-xl font-semibold cursor-pointer">
+              ITALIANO <span className="text-lime-500">RECIPE</span>
+            </p>
           </Link>
         </div>
         <div className="navbar-end hidden lg:flex">

@@ -20,7 +20,7 @@ const RecipeTypes = () => {
       </p>
       <div className="grid md:grid-cols-4 gap-4 mt-8">
         {categories.map((category) => (
-          <div className="p-5 bg-lime-50 rounded-lg">
+          <div className="p-5 bg-lime-50 rounded-lg" key={category.id}>
             <div className="w-full bg-cover overflow-hidden rounded-lg cursor-pointer">
               <img
                 src={category.imgUrl}

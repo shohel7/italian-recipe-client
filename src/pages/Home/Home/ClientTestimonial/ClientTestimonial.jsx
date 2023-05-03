@@ -53,7 +53,7 @@ const ClientTestimonial = () => {
         >
           <div>
             {testimonials.map((testimonial) => (
-              <SwiperSlide>
+              <SwiperSlide key={testimonial.id}>
                 <div className="flex flex-col gap-12 items-center py-10">
                   <FaQuoteRight className="text-7xl text-white bg-lime-300 rounded-full py-5 h-24 w-24" />
                   <p className="text-slate-300 md:font-semibold text-xl md:text-2xl px-16 md:px-40 text-center">
