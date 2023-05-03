@@ -17,7 +17,10 @@ const ChefCard = () => {
       </p>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-y-7 mt-12">
         {allChefs.map((chef) => (
-          <div className="card md:w-[345px] bg-base-100 shadow-xl">
+          <div
+            className="card md:w-[345px] bg-base-100 shadow-xl"
+            key={chef.id}
+          >
             <figure>
               <img src={chef.imgUrl} alt="Shoes" />
             </figure>

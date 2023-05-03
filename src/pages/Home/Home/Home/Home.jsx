@@ -1,11 +1,12 @@
 import React from "react";
 import ChefCard from "../ChefCard/ChefCard";
+import RecipeTypes from "../RecipeTypes/RecipeTypes";
 
 const Home = () => {
   return (
     <div>
       <ChefCard />
-      <h2>Home</h2>
+      <RecipeTypes />
     </div>
   );
 };
