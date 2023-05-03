@@ -1,6 +1,6 @@
 import React from "react";
 import { FaThumbsUp } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ChefCard = () => {
   const allChefs = useLoaderData();
@@ -36,9 +36,11 @@ const ChefCard = () => {
                 </span>
               </div>
               <div className="card-actions justify-center">
-                <button className=" text-white py-2 md:py-3 px-3 md:px-5 w-full bg-lime-500 hover:bg-lime-600 transition-all duration-200 ease-in-out rounded-lg text-lg md:font-bold mt-10">
-                  View Recipe
-                </button>
+                <Link to={`/chefRecipes/${chef.id}`}>
+                  <button className=" text-white py-2 md:py-3 px-3 md:px-5 w-full bg-lime-500 hover:bg-lime-600 transition-all duration-200 ease-in-out rounded-lg text-lg md:font-bold mt-10">
+                    View Recipe
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

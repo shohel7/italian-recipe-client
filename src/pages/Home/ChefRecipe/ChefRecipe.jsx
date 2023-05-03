@@ -1,9 +1,10 @@
 import React from "react";
+import RecipeBanner from "../RecipeBanner/RecipeBanner";
 
 const ChefRecipe = () => {
   return (
     <div>
-      <h2>ChefRecipe</h2>
+      <RecipeBanner />
     </div>
   );
 };
