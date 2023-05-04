@@ -1,17 +1,12 @@
-import React from "react";
-import {
-  FaHeart,
-  FaRegStar,
-  FaStar,
-  FaStarHalfAlt,
-  FaThumbsUp,
-} from "react-icons/fa";
+import React, { useState } from "react";
+import { FaHeart, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { useLoaderData } from "react-router-dom";
 
 const RecipeCard = () => {
   const { recipes } = useLoaderData();
-  console.log(recipes);
+  const [favorite, setFavorite] = useState(false);
+  console.log(favorite);
 
   return (
     <div className="px-5 md:px-28 ">
@@ -33,7 +28,6 @@ const RecipeCard = () => {
                   </span>
                   {recipe.cooking_method}
                 </p>
-                {/* <div className="flex justify-between items-center"> */}
                 <span>
                   <p className="font-bold text-gray-600">Ingredients:</p>
                   {recipe.ingredients?.map((ingredient, index) => (
@@ -42,9 +36,13 @@ const RecipeCard = () => {
                     </p>
                   ))}
                 </span>
-                {/* </div> */}
                 <div className="flex justify-between items-center mt-3">
-                  <button className="flex gap-2 items-center bg-lime-500 py-1 px-2 rounded-md">
+                  <button
+                    onClick={(e) => setFavorite(!favorite)}
+                    className={`flex gap-2 items-center bg-lime-500 py-1 px-2 rounded-md ${
+                      favorite ? "opacity-25" : "opacity-100"
+                    }`}
+                  >
                     <p>Add to Favorite</p>
                     <FaHeart className="text-white text-xl" />
                   </button>

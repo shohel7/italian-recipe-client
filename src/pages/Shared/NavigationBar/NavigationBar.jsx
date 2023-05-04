@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { FaUtensils } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavigationBar = () => {
+  const { logOut, user } = useContext(AuthContext);
+  console.log(user.name);
+
+  const handleLogout = () => {
+    logOut()
+      .then((result) => {
+        const userLogout = result.user;
+        console.log(userLogout);
+        toast("successfully logged out");
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="px-5 md:px-28 mx-0">
       <div className="navbar">
@@ -73,7 +86,7 @@ const NavigationBar = () => {
             </li>
           </ul>
         </div>
-        {/* <div className="navbar-end">
+        <div className="navbar-end">
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
@@ -93,12 +106,12 @@ const NavigationBar = () => {
               <li>
                 <a>Settings</a>
               </li>
-              <li>
+              <li onClick={handleLogout}>
                 <a>Logout</a>
               </li>
             </ul>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
