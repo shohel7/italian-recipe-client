@@ -4,13 +4,16 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+// console.log("environment variable", import.meta.env.VITE_PASS);
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCqLTs1q7yrNJQo98ZbLJL2nBnhFU93Gj0",
-  authDomain: "italiano-recipe.firebaseapp.com",
-  projectId: "italiano-recipe",
-  storageBucket: "italiano-recipe.appspot.com",
-  messagingSenderId: "918635259394",
-  appId: "1:918635259394:web:13f7c0f5633f60a937291b",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

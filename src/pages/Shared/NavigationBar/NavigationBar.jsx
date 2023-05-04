@@ -2,10 +2,10 @@ import React, { useContext, useState } from "react";
 import { FaUtensils } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const NavigationBar = () => {
   const { logOut, user } = useContext(AuthContext);
-  console.log(user.name);
 
   const handleLogout = () => {
     logOut()
