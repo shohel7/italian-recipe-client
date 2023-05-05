@@ -30,7 +30,7 @@ const Blog = () => {
   };
   return (
     <>
-      <div className="px-5 md:px-28 py-8" ref={pdfRef}>
+      <div className="px-10 md:px-28 py-8" ref={pdfRef}>
         <h1 className="text-gray-800 font-semibold text-2xl md:text-3xl text-center mb-16">
           Question and Answer
         </h1>
