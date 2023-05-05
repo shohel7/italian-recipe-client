@@ -1,6 +1,8 @@
 import React from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const ChefCard = () => {
   const allChefs = useLoaderData();
@@ -22,7 +24,12 @@ const ChefCard = () => {
             key={chef.id}
           >
             <figure>
-              <img src={chef.imgUrl} alt="Shoes" />
+              <LazyLoadImage
+                effect="blur"
+                src={chef.imgUrl}
+                key={chef.id}
+                alt={chef.alt}
+              />
             </figure>
             <div className="card-body">
               <h2 className="card-title">Chef Name: {chef.name}</h2>

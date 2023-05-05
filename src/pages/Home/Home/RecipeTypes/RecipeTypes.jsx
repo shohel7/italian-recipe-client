@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const RecipeTypes = () => {
   const [categories, setCategories] = useState([]);
@@ -22,7 +24,10 @@ const RecipeTypes = () => {
         {categories.map((category) => (
           <div className="p-5 bg-lime-50 rounded-lg" key={category.id}>
             <div className="w-full bg-cover overflow-hidden rounded-lg cursor-pointer">
-              <img
+              <LazyLoadImage
+                key={category.id}
+                effect="blur"
+                alt={category.alt}
                 src={category.imgUrl}
                 className="w-full h-56 transform 
                                         transition duration-1000 hover:scale-125"

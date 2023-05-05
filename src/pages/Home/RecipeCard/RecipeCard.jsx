@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FaHeart, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { useLoaderData } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const RecipeCard = () => {
   const { recipes } = useLoaderData();
@@ -17,7 +19,12 @@ const RecipeCard = () => {
             key={recipe.id}
           >
             <figure>
-              <img src={recipe.img_url} alt="recipe-image" />
+              <LazyLoadImage
+                effect="blur"
+                key={recipe.id}
+                alt={recipe.alt}
+                src={recipe.img_url}
+              />
             </figure>
             <div className="card-body">
               <h2 className="card-title">Recipe: {recipe.name}</h2>
