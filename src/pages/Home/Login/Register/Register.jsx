@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../../providers/AuthProvider";
 
 const Register = () => {
@@ -8,6 +8,7 @@ const Register = () => {
     useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -29,9 +30,9 @@ const Register = () => {
         setSuccess("User registration successfully");
         updateUserProfile(name, photo)
           .then((result) => {
-            // const name = result.name;
-            // const photo = result.photo;
-            // console.log(name, photo);
+            const name = result.name;
+            const photo = result.photo;
+            console.log(name, photo);
           })
           .catch((error) => console.log(error.message));
         form.reset();
@@ -49,6 +50,7 @@ const Register = () => {
         const loggedInUser = result.user;
         console.log(loggedInUser);
         setUser(loggedInUser);
+        navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -61,6 +63,7 @@ const Register = () => {
         const loggedInUser = result.user;
         console.log(loggedInUser);
         setUser(loggedInUser);
+        navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;

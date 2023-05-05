@@ -20,7 +20,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/allchefs"),
+        loader: () => fetch("https://y-six-cyan.vercel.app/allchefs"),
       },
     ],
   },
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/chef/${params.id}`),
+          fetch(`https://y-six-cyan.vercel.app/chef/${params.id}`),
       },
     ],
   },

@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../../providers/AuthProvider";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
@@ -35,6 +35,33 @@ const Login = () => {
         const errorMessage = error.message;
         console.log(errorMessage);
         setError(errorMessage);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        setUser(loggedInUser);
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
+  const handleGithubSignIn = () => {
+    githubSignIn()
+      .then((result) => {
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        setUser(loggedInUser);
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
       });
   };
 
@@ -94,12 +121,18 @@ const Login = () => {
           </div>
         </div>
         <div className="flex flex-col gap-2 items-center">
-          <button className="bg-red-500 py-2 w-80 text-white md:font-bold rounded-lg hover:bg-red-600 transition-all duration-200 ease-in-out">
+          <button
+            onClick={handleGoogleSignIn}
+            className="bg-red-500 py-2 w-80 text-white md:font-bold rounded-lg hover:bg-red-600 transition-all duration-200 ease-in-out"
+          >
             <span className="flex gap-2 items-center justify-center text-center">
               <p>Login with google</p> <FaGoogle />
             </span>
           </button>
-          <button className="bg-gray-700 py-2 w-80 text-white md:font-bold rounded-lg hover:bg-gray-800 transition-all duration-200 ease-in-out">
+          <button
+            onClick={handleGithubSignIn}
+            className="bg-gray-700 py-2 w-80 text-white md:font-bold rounded-lg hover:bg-gray-800 transition-all duration-200 ease-in-out"
+          >
             <span className="flex gap-2 items-center justify-center text-center">
               <p>Login with github </p>
               <FaGithub />

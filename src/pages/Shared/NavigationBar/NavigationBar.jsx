@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import { FaUtensils } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-toastify";
+import "./NavigationBar.css";
 
 const NavigationBar = () => {
   const { logOut, user } = useContext(AuthContext);
@@ -42,16 +43,44 @@ const NavigationBar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-base"
             >
               <li className="hover:text-lime-500 transition-all duration-200 ease-in-out">
-                <Link to="/">Home</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
+                  to="/"
+                >
+                  Home
+                </NavLink>
               </li>
               <li className="hover:text-lime-500 transition-all duration-200 ease-in-out">
-                <Link to="/about">About</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
+                  to="/about"
+                >
+                  About
+                </NavLink>
               </li>
               <li className="hover:text-lime-500 transition-all duration-200 ease-in-out">
-                <Link to="/blog">Blog</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
+                  to="/blog"
+                >
+                  Blog
+                </NavLink>
               </li>
               <li className="hover:text-lime-500 transition-all duration-200 ease-in-out">
-                <Link to="/login">Login</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }
+                  to="/login"
+                >
+                  Login
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -67,16 +96,28 @@ const NavigationBar = () => {
         <div className="navbar-end hidden lg:flex">
           <ul className="menu-horizontal px-1 space-x-10 text-gray-800 font-semibold text-lg">
             <li className="hover:text-lime-500 transition-all duration-200 ease-in-out">
-              <Link to="/">Home</Link>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "default")}
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
             <li className="hover:text-lime-500 transition-all duration-200 ease-in-out">
-              <Link to="/chef">Chefs</Link>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "default")}
+                to="/about"
+              >
+                About
+              </NavLink>
             </li>
             <li className="hover:text-lime-500 transition-all duration-200 ease-in-out">
-              <Link to="/about">About</Link>
-            </li>
-            <li className="hover:text-lime-500 transition-all duration-200 ease-in-out">
-              <Link to="/blog">Blog</Link>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "default")}
+                to="/blog"
+              >
+                Blog
+              </NavLink>
             </li>
             {user ? (
               <div className="flex">

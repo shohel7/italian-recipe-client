@@ -10,6 +10,11 @@ const RecipeCard = () => {
   const [favorite, setFavorite] = useState(false);
   console.log(favorite);
 
+  const handleFavoriteBtn = (id) => {
+    const findSingleRecipe = recipes.find((r) => r.id === id);
+    setFavorite(findSingleRecipe);
+  };
+
   return (
     <div className="px-5 md:px-28 ">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-y-7 mt-12">
@@ -45,7 +50,7 @@ const RecipeCard = () => {
                 </span>
                 <div className="flex justify-between items-center mt-3">
                   <button
-                    onClick={(e) => setFavorite(!favorite)}
+                    onClick={() => handleFavoriteBtn(recipe.id)}
                     className={`flex gap-2 items-center bg-lime-500 py-1 px-2 rounded-md ${
                       favorite ? "opacity-25" : "opacity-100"
                     }`}

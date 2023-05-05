@@ -10,7 +10,7 @@ const ClientTestimonial = () => {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/testimonials")
+    fetch("https://y-six-cyan.vercel.app/testimonials")
       .then((res) => res.json())
       .then((data) => setTestimonials(data));
   }, []);
